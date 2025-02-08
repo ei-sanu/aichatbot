@@ -248,6 +248,137 @@ h1 {
     .logo-text {
         font-size: 1.2rem;
     }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Hero Section Mobile Styles */
+    .hero {
+        padding: 2rem 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .chat-preview {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    /* Footer Mobile Styles */
+    .footer-content {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media screen and (max-width: 480px) {
+    .chatbot-button {
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+
+    .chat-message {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .logo-container {
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Improve Touch Targets */
+@media (hover: none) and (pointer: coarse) {
+    .nav-links a {
+        padding: 1rem;
+    }
+
+    .footer-section a {
+        padding: 0.8rem 0;
+        display: inline-block;
+    }
+
+    .social-links a {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+}
+
+/* Fix Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 4rem 2rem;
+    }
+
+    .nav-links.active {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
 }
 
 .pulse {
@@ -535,5 +666,137 @@ body.overlay-active .chat-preview {
     
     .social-links {
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Hero Section Mobile Styles */
+    .hero {
+        padding: 2rem 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .chat-preview {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    /* Footer Mobile Styles */
+    .footer-content {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chatbot-button {
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+
+    .chat-message {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .logo-container {
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+@media (hover: none) and (pointer: coarse) {
+    .nav-links a {
+        padding: 1rem;
+    }
+
+    .footer-section a {
+        padding: 0.8rem 0;
+        display: inline-block;
+    }
+
+    .social-links a {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+}
+
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 4rem 2rem;
+    }
+
+    .nav-links.active {
+        max-height: 80vh;
+        overflow-y: auto;
     }
 }
