@@ -22,6 +22,7 @@
         }
 
         .container {
+            margin-top: 80px;
             max-width: 500px;
             width: 100%;
             background: #1a1a1a;
@@ -116,9 +117,118 @@
                 padding: 20px;
             }
         }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 51, 51, 0.1);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff3333;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 35px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 35px;
+            height: 4px;
+            background-color: #ff3333;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin: 3px 0;
+        }
+
+        #nav-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            background: rgba(26, 26, 26, 0.98);
+            padding: 2rem;
+            transition: 0.3s ease;
+            border-radius: 0 0 0 15px;
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #nav-menu.active {
+            right: 0;
+        }
+
+        #nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        #nav-menu a:hover {
+            background: rgba(255, 51, 51, 0.1);
+            color: #ff3333;
+        }
+
+        .active {
+            color: #ff3333 !important;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="logo-container">
+            <span class="logo-text">Neurowell</span>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="active">Login</a>
+        </nav>
+    </header>
     <div class="container">
         <div class="title">Sign Up</div>
         <form id="signupForm" novalidate>
@@ -225,6 +335,24 @@
         inputs.forEach(input => {
             input.addEventListener('input', () => hideError(input));
         });
+        function toggleMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
     </script>
 </body>
 </html>

@@ -45,7 +45,7 @@
         <div class="hero-content">
             <h1>Your Mental Wellness Companion</h1>
             <p class="subtitle">Experience 24/7 support with our AI-powered mental health chatbot. Professional guidance, emotional support, and practical tools - all in one place.</p>
-            <a href="chatbot.html" class="chatbot-button pulse">
+            <a href="#" class="chatbot-button pulse" onclick="toggleChatbot(); return false;">
                 <i class="fas fa-comments"></i>
                 <span>Start Chat</span>
             </a>
@@ -76,7 +76,7 @@
                 <a href="features.html">Features</a>
                 <a href="contact.html">Get in Touch</a>
                 <a href="#about">About Us</a>
-                <a href="#privacy">Privacy Policy</a>
+                <a href="privacyterms.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
             </div>
 
@@ -90,10 +90,10 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100075721869413"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/SomeshR82674271"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/somesh-biswal-b73576320"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/_saanuuuu___?igsh=amVkMm42djQ4MGhs"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="certifications">
                     <p>Licensed Mental Health Service Provider</p>
@@ -107,6 +107,16 @@
             <p>Emergency? Call: <a href="tel:911">911</a> or National Crisis Line: <a href="tel:988">988</a></p>
         </div>
     </footer>
+
+    <div id="chatbot-popup" class="chatbot-popup">
+        <div class="chatbot-header">
+            <span class="logo-text">Neurowell Chat</span>
+            <button class="close-chat" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <iframe id="chatbot-frame" src="chatbot.html" frameborder="0"></iframe>
+    </div>
 
     <script src="script.js"></script>
 </body>

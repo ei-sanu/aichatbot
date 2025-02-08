@@ -8,22 +8,7 @@
     <link rel="icon" href="NEUROWELL.png" type="image/x-icon">
 </head>
 <body>
-    <!-- <header class="header">
-        <div class="logo-container">
-            <span class="logo-text">Neurowell</span>
-        </div>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav id="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="features.html">Features</a>
-            <a href="#about">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header> -->
+    
 
     <div class="theme-switch">
         <button id="theme-toggle">
@@ -74,5 +59,24 @@
     </main>
 
     <script src="chatbot.js"></script>
+    <script>
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', (e) => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

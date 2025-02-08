@@ -36,19 +36,62 @@ body {
     padding: 15px;
 }
 
-/* Header and Navigation Styles */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 2rem;
-    background: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
+/* Remove or comment out the header styles */
+/* .header {
+    ...
+} */
+
+.hamburger {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+    width: 35px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    position: relative; /* Add this */
+}
+
+.bar {
+    display: block; /* Add this */
+    width: 35px;
+    height: 4px;
+    background-color: #ff3333;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin: 3px 0;
+}
+
+#nav-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 300px;
+    background: rgba(26, 26, 26, 0.98);
+    padding: 2rem;
+    border-radius: 0 0 0 15px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#nav-menu.active {
+    display: block;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
 }
 
 .hamburger {
@@ -128,10 +171,9 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    margin: 20px auto;
+    margin: 20px auto;  /* Remove margin-top that was accounting for header */
     position: relative;
     z-index: 1;
-    margin-top: 80px;
 }
 
 .chat-header {
@@ -301,7 +343,7 @@ button:active {
         height: 100vh;
         max-height: none;
         border-radius: 0;
-        margin: 0;
+        margin: 0;  /* Remove margin-top */
     }
     
     .chat-header {
@@ -329,6 +371,19 @@ button:active {
         max-width: 90%;
         padding: 10px 15px;
         margin: 5px 0;
+    }
+
+    #nav-menu {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .hamburger {
+        margin-right: 1rem; /* Add some spacing on mobile */
+    }
+
+    .theme-switch {
+        top: 20px;  /* Adjust for mobile */
     }
 }
 
@@ -387,9 +442,9 @@ button:active {
 
 .theme-switch {
     position: fixed;
-    top: 20px;
+    top: 20px;  /* Adjust from header height + gap to just gap */
     right: 20px;
-    z-index: 1000;
+    z-index: 999;
 }
 
 #theme-toggle {

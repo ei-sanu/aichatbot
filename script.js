@@ -66,3 +66,32 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         document.body.style.overflow = 'auto';
     });
 });
+
+function toggleChatbot() {
+    const chatbotPopup = document.getElementById('chatbot-popup');
+    chatbotPopup.classList.toggle('active');
+    
+    if (chatbotPopup.classList.contains('active')) {
+        document.getElementById('chatbot-frame').focus();
+    }
+}
+
+document.addEventListener('click', (e) => {
+    const chatbotPopup = document.getElementById('chatbot-popup');
+    const chatbotButton = document.querySelector('.chatbot-button');
+    
+    if (!chatbotPopup.contains(e.target) && 
+        !chatbotButton.contains(e.target) && 
+        chatbotPopup.classList.contains('active')) {
+        toggleChatbot();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const chatbotPopup = document.getElementById('chatbot-popup');
+        if (chatbotPopup.classList.contains('active')) {
+            toggleChatbot();
+        }
+    }
+});
