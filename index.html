@@ -9,7 +9,81 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="NEUROWELL.png" type="image/x-icon">
 </head>
-<body>
+<body>Since there is no selected code, I will provide a code snippet that can be inserted at the cursor position to improve the existing code. Here's a JavaScript code that can be added to the script.js file to enhance the functionality of the chatbot popup:
+
+```javascript
+function toggleChatbot() {
+    const chatbotPopup = document.getElementById('chatbot-popup');
+    chatbotPopup.classList.toggle('active');
+}
+
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chatbotButton = document.querySelector('.chatbot-button');
+    chatbotButton.addEventListener('click', () => {
+        toggleChatbot();
+    });
+
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+        toggleMenu();
+    });
+});
+```
+
+And here's the CSS code that can be added to the styles.css file to improve the styling of the chatbot popup:
+
+```css
+.chatbot-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatbot-popup.active {
+    display: flex;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-chat {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-chat i {
+    font-size: 18px;
+    color: #333;
+}
+
+.chatbot-frame {
+    width: 80%;
+    height: 80%;
+    border: none;
+}
+
+.nav-links.active {
+    display: block;
+}
+```
     <header class="header">
         <div class="logo-container">
             <svg width="50" height="50" viewBox="0 0 50 50">
