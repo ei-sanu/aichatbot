@@ -36,23 +36,26 @@ function closeChatbot() {
 document.getElementById('overlay').addEventListener('click', closeChatbot);
 
 function toggleMenu() {
-    const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
     
+    navLinks.classList.toggle('active');
     hamburger.classList.toggle('active');
-    navLinks.classList.toggle('show');
     
-    document.body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : 'auto';
+    // Add this to prevent body scrolling when menu is open
+    document.body.classList.toggle('menu-open');
 }
 
+// Add this to close menu when clicking outside
 document.addEventListener('click', (e) => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('show');
-        document.body.style.overflow = 'auto';
+    if (!e.target.closest('.hamburger') && !e.target.closest('.nav-links')) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
     }
 });
 
@@ -68,11 +71,11 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 function toggleChatbot() {
-    const chatbotPopup = document.getElementById('chatbot-popup');
-    chatbotPopup.classList.toggle('active');
-    
-    if (chatbotPopup.classList.contains('active')) {
-        document.getElementById('chatbot-frame').focus();
+    const chatbot = document.getElementById('chatbot-popup');
+    if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+        chatbot.style.display = 'block';
+    } else {
+        chatbot.style.display = 'none';
     }
 }
 
@@ -94,4 +97,36 @@ document.addEventListener('keydown', (e) => {
             toggleChatbot();
         }
     }
+});
+
+// Make chatbot draggable and resizable
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbot = document.getElementById('chatbot-popup');
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+
+    chatbot.addEventListener('mousedown', function(e) {
+        if (e.target.classList.contains('chatbot-header')) {
+            isDragging = true;
+            initialX = e.clientX - chatbot.offsetLeft;
+            initialY = e.clientY - chatbot.offsetTop;
+        }
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            e.preventDefault();
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+            chatbot.style.left = currentX + 'px';
+            chatbot.style.top = currentY + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+    });
 });
